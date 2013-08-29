@@ -3547,6 +3547,9 @@ Checker.prototype = {
 #ifdef MOZ_WIDGET_GONK
     url = url.replace(/%PRODUCT_MODEL%/g, gProductModel);
     url = url.replace(/%B2G_VERSION%/g, getPref("getCharPref", PREF_APP_B2G_VERSION, null));
+    url = url.replace(/%SERIAL_NO%/g, libcutils.property_get("qc.dogfood.serialno"));
+    url = url.replace(/%FINGERPRINT%/g, libcutils.property_get("ro.build.fingerprint"));
+    url = url.replace(/%KEY%/g, libcutils.property_get("qc.dogfood.key"));
 #endif
 
     if (force)
